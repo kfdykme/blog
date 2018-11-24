@@ -1,3 +1,12 @@
+---
+title : Android NavigationView
+date : longlong以前
+tags :
+- android
+---
+
+
+
 # NavigationView (1)  
 
    Today I learnt how to use navigationview to make a esay 导航栏
@@ -16,7 +25,7 @@ your main layout
 
 ### menu layout：
 menu/draw_view.xml
- 
+
 ```  xml
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -77,7 +86,7 @@ layout/nav_header.xml
 		android:layout_height="64dp"
 		android:scaleType="centerCrop"
 		android:src="@drawable/ic_head"/>
-	
+
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -111,10 +120,10 @@ layout/main.xml
             android:id="@+id/id_tv_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-			
+
             android:text="HelloWorld"
             android:textSize="30sp"/>
-		
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/id_nv_menu"
@@ -157,13 +166,13 @@ public class Main extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-		
+
         setContentView(R.layout.main);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.id_drawer_layout);
         mNavigationView = (NavigationView) findViewById(R.id.id_nv_menu);
 
-		
+
         setupDrawerContent(mNavigationView);
 
 
@@ -189,4 +198,3 @@ public class Main extends AppCompatActivity
 }
 
 ```
-

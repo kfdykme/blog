@@ -1,12 +1,27 @@
+---
+title : Android Database Sugar 简单实用
+date : longlong以前
+tags :
+- android
+---
+
+
+
+
+# Android Database Sugar 简单实用 
+
+
+
+
         在看过三个版本（对就是版本）greenDao教程最终发现AIDE无法使用带有注解的库的时候，我是稍有点绝望的。
 
         同时也萌发了自己对网络教程的感慨：还是看官方文档吧官方文档我爱你。
 
         然后呢，不想用sqlite只好自己继续寻数据库了，于是找到了sugar。
-         
 
 
-# 正文
+
+## 正文
 
 先把github放出来，很多东西自己看就够了。
 >  github : [http://satyan.github.io/sugar/](http://satyan.github.io/sugar/)
@@ -21,7 +36,7 @@ SugarContext.terminate();
 
 在github上有下载,我用的是gradle。
 
-接下来 
+接下来
 ## 简单操作
 
 ### 插入
@@ -33,17 +48,17 @@ SugarContext.terminate();
 public class MyRed extends SugarRecord
 {
 	private String mDesc;
-	
+
 	private String mUrl;
-	
+
 	private String mWho;
-	
+
 	private String mThink;
-	
+
 	public MyRed(){
-		
+
 	}
-	
+
 	public MyRed(String desc,  String url, String who, String think){
 		setDesc(desc);
 		setUrl(url);
@@ -108,7 +123,7 @@ public class MyRed extends SugarRecord
 	<meta-data android:name="VERSION" android:value="1" />
 	<meta-data android:name="QUERY_LOG" android:value="true" />
 	<meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.kfykme.sugar" />
-	
+
 
 </manifest>
 
@@ -119,7 +134,7 @@ android:value 的值随自己需要更改。
 
 - 初始化
 在使用前需要调用上文提到的两个方法。
-``` 
+```
 
 
     @Override
@@ -127,8 +142,8 @@ android:value 的值随自己需要更改。
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 		      SugarContext.init(this);
-	
-		
+
+
     }
 ```
 ```
@@ -138,11 +153,11 @@ android:value 的值随自己需要更改。
 	{
 		// TODO: Implement this method
 		super.onDestroy();
-		
+
 		SugarContext.terminate();
-		
+
 	}
-	
+
 
 ```
 
@@ -169,7 +184,7 @@ mMyRedPresenter.saveMyRed(
 		if(!myRed.getDesc().isEmpty()
 			&& (myRed.getUrl().length() > 5)
 			&& !myRed.getWho().isEmpty()){
-			
+
 			 myRed.save();
 			 Toast.makeText(mView,"Saved",Toast.LENGTH_SHORT).show();
 			} else {
@@ -206,19 +221,10 @@ MyRed.save()会自动判断是新数据还是更新数据。
 
 
 
-##### 备注1 
+##### 备注1
    简单使用嘛，就这样了。
 
 #####  备注2
     空构造空构造方法很重要  
-#####  备注3 
+#####  备注3
     下一次研究一下如何建立多个表
-
-
-
-
-
-
-
-
-
