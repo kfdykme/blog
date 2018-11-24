@@ -1,6 +1,6 @@
 ---
 title : Android Database Sugar 简单实用
-date : longlong以前
+date : 2016/11/11 00:00:00
 tags :
 - android
 ---
@@ -8,7 +8,7 @@ tags :
 
 
 
-# Android Database Sugar 简单实用 
+# Android Database Sugar 简单实用
 
 
 
