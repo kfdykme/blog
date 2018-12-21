@@ -1,3 +1,9 @@
+---
+title: quickapp 踩坑记（一） 入门坑与为什么踩这个坑
+date: 2018/12/21 00:59:32
+tags:
+- quickapp
+---
 # quickapp 踩坑记 (一) 入门坑与为什么踩这个坑
 
 ## 简介
@@ -13,15 +19,19 @@
 ## 正文
 
 ### 基本配置
-在 ubuntu  下开发的沙沙沙
+我的ubuntu是 18.04,当然这并不重要，应该说我的系统是ubuntu。环境配置就是很正常的安装一些东西就好了。
 
-我的ubuntu是 18.04
+目前快应用有3个IDE，一个官方的IDE和华为的两个版本的IDE,看上去都是基于VSCODE的，另外他们都没有linux的版本...
 
-install node
+官方好像也有推荐使用sublxxx(一看我名字都记不住就知道我不喜欢用这个）或者 vscode 或者webstrom(好像没有免费版，我就没用了，尊重一下JetBrains)
 
-install atom
+首先 install [node](https://nodejs.org/zh-cn/)
 
-atom
+然后 install [atom](https://atom.io)
+
+#### 配置一下文本编辑工具
+
+打开 atom
 --> Edit
 --> Preferences
 --> open config folder
@@ -36,9 +46,11 @@ atom
         "ux"
       ]
 ```
-然后随意弄一下语法高亮
-配置完之后是这样子的
-![](../static/quickapp_environment_1.png)
+
+然后随意弄一下UI theme 和 Syntax theme
+
+我的配置完之后是这样子的
+![](/images/quickapp_environment_1.png)
 
 
 然后就算很正常的npm install -g hap-toolkit
@@ -46,9 +58,9 @@ atom
 > 可以选择装一个emmet插件辅助自动补全
 
 走起～
-## 关于调试
+### 关于调试
 
-### 无法在线更新
+#### 无法在线更新
 一开始的时候遇到过无法在线安装的问题，后来发现不止是快应用，其他用wifi调试的类似开发方式有时也会遇到。这里的其他开发方式指的是 Ionic 的 Ionic DevApp和React Native的Expo。这两者也是在手机上运行了一个'容器'，方便实现热加载，利用chrome dev tool进行调试等。
 
 言归正传，快应用调试的时候运行
@@ -57,7 +69,7 @@ npm run server
 ```
 会生成一堆东西:
 
-![](../static/quickapp_environment_2.png)
+![](/images/quickapp_environment_2.png)
 
 这里生成ip地址不一定是对应的本机的地址(当然我图中的是正确的)。如果电脑上装了虚拟机/docker/其他容器，这里的服务器地址**有可能**会是虚拟机的网卡的ip,同时二维码对应的也是虚拟机的ip，这样扫码是**不能在线更新**的（因为连不上)
 
@@ -68,11 +80,11 @@ npm run server
 >在这里顺带感谢一下在我遇到这个问题时群里通过ip地址看出是虚拟机ip的那个大哥
 
  ps:这个问题在官方支持usb调试之后就与我绝缘了。
-### 无法上传
+#### 无法上传
 
 在调用快应用的系统能力之网络之上传时，有可能会发生这样的错误
 
-![](../static/quickapp_environment_3.png)
+![](/images/quickapp_environment_3.png)
 
 然后代码是这样子的：
 
