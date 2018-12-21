@@ -9,12 +9,12 @@ tags:
 ## 简介
 
 主要讲了
-- ubuntu + atom + 等等等等搭建快应用开发环境
+- ubuntu + atom 搭建快应用开发环境
 - 调试相关
   - 无法通过wifi调试以及可能原因
   - 由于调试导致的上传失败
 - 通过 adb 调试快应用
-- 闲话：为何如坑
+- 闲话：为何入坑
 
 ## 正文
 
@@ -23,7 +23,10 @@ tags:
 
 目前快应用有3个IDE，一个官方的IDE和华为的两个版本的IDE,看上去都是基于VSCODE的，另外他们都没有linux的版本...
 
-官方好像也有推荐使用sublxxx(一看我名字都记不住就知道我不喜欢用这个）或者 vscode 或者webstrom(好像没有免费版，我就没用了，尊重一下JetBrains)
+官方好像也有推荐使用:
+- sublxxx(一看我名字都记不住就知道我不喜欢用这个）
+- vscode (安装快应用对应的插件)
+- webstorm(好像没有免费版，我就没用了，尊重一下JetBrains)
 
 首先 install [node](https://nodejs.org/zh-cn/)
 
@@ -32,10 +35,14 @@ tags:
 #### 配置一下文本编辑工具
 
 打开 atom
---> Edit
---> Preferences
---> open config folder
---> config.cson
+
+--> 菜单栏 Edit
+
+--> 选择 Preferences (window下*可能*是File->Settings)
+
+--> 点击按钮 Open Config Folder
+
+--> 打开文件 config.cson
 
 配置对ux文件的语法高亮
 ``` Json
@@ -86,7 +93,7 @@ npm run server
 
 ![](/images/quickapp_environment_3.png)
 
-然后代码是这样子的：
+代码是这样子的：
 
 ``` js
 import request from '@system.request' //正常的导入
@@ -104,12 +111,15 @@ request.upload({
 })
 ```
 
-这通常是发生在开了调试工具的时候，一边进行调试一边上传就是报错
+这通常是发生在开了调试工具的时候，一边进行调试一边上传就会报错：
 ``` log
 发生了错误: 1000
 Stream Closed
 ```
+##### 处理方法：
 这时候只需要拔掉你的usb线,再次上传，一切ok。
+
+其实就是退出调试模式，单纯运行快应用。
 
 如果想要查看上传过程中的log的话可以使用adb。
 
@@ -132,7 +142,7 @@ console.info('你的log')
 // console.log()的日志不能被下面的命令抓取
 //（记得不清+不想做实验了)
 ```
-+
+然后在命令行输入:
 ``` shell
 adb logcat | grep JsConsole
 ```
@@ -143,7 +153,9 @@ adb logcat 是读取手机运行的日志，快应用运行的日志自然也包
 
 windows同学没有grep命令的话......可以使用windows上支持bash的终端工具。
 
-### 一些闲话
+> 最近在ubutn上 adb 有时会与 npm run server 冲突，需要关掉其中一个（或者会自动帮你关到其中一个)
+
+### 一些闲(fei4)话
 比起前端开发，我更加熟悉的可能是android端的开发。虽然也大概清楚前端开发是怎么一回事，但是完完整整地用标记语言+js+css开发一个东西的经验并不是很多。所以如有错漏的，不专业的地方(后续会很多)请轻喷。写这篇东西一是为了征文大赛，二是为了顺带梳理一番开发过程中遇到的问题。
 
 同时最近忙成狗的我也没时间看别人的征文，如果有些内容已经有人指出了，如有巧合纯属雷同，啦啦啦啦啦啦。
