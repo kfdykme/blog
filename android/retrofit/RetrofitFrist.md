@@ -12,6 +12,9 @@ Retrofit 大致上就是动态代理+注释处理
 
 ## 简单来说
 
+
+如果我们要进行一个像这样的网络请求
+
 ``` java
 GitHubService service = retrofit.create(GitHubService.class);
 
@@ -20,17 +23,19 @@ Call<List<Repo>> repos = service.listRepos("octocat");
 ```
 摘自[retrofit](https://square.github.io/retrofit/)
 
-的过程是这样的
+其内部的过程是这样的
 
 - retrofit.create()
-  - Proxy.newProxyInstance
-    - loadServiceMethod()
-      - parseAnnotations
+  - Proxy.newProxyInstance  创建一个java动态代理
+    - loadServiceMethod() 调用这个方法
+      - parseAnnotations  对GithubService.class内的注释进行处理
         - RequestFactory.parseAnnotations (处理注释)
         - HttpServiceMethod.parseAnnotations （与Okhttp关联)
-    - loadServiceMethod().invoke = HttpServiceMethod.invoke
+    - loadServiceMethod().invoke = HttpServiceMethod.invoke 方法调用时会对应调用
+
 - service.listRepos == Proxy.InvocationHandler.invoke
 
+下面看看具体内容.
 
 ## create()
 Retrofit 的源码我们从Retrofit.create这个方法开始看
@@ -265,4 +270,4 @@ final class HttpServiceMethod<ResponseT, ReturnT> extends ServiceMethod<ReturnT>
 可以看出，当 service里面的方法被执行的时候，是由callAdapter.adapt()处理一个OkHttoCall完成的。
 到此为止，retrofit与okhttp之间的联系也就找到了.
 
-暂时到此为止。
+我对动态代理也不熟悉,暂时到此为止。
