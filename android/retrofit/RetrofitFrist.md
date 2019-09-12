@@ -270,4 +270,4 @@ final class HttpServiceMethod<ResponseT, ReturnT> extends ServiceMethod<ReturnT>
 可以看出，当 service里面的方法被执行的时候，是由callAdapter.adapt()处理一个OkHttoCall完成的。
 到此为止，retrofit与okhttp之间的联系也就找到了.
 
-我对动态代理也不熟悉,暂时到此为止。
+我对动态代理也不熟悉,暂时到此为止,。
