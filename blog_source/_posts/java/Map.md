@@ -1,6 +1,6 @@
 ---
-title :Java Interface Map
-date :2018/11/18 22:09:00
+title : Java Interface Map
+date : 2018/11/18 22:09:00
 tags:
 - Java
 ---

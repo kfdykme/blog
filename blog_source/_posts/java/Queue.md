@@ -1,6 +1,6 @@
 ---
-title :Java Queue
-date :2018/10/25 00:00:00
+title : Java Queue
+date : 2018/10/25 00:00:00
 tags :
   - Java
 ---

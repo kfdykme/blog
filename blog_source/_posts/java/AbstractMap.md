@@ -1,6 +1,6 @@
 ---
 title : Java abstract class AbstractMap<K,V>
-date :2018/11/19 03:30:00
+date  : 2018/11/19 03:30:00
 tag :
 - java
 ---

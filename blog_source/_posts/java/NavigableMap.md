@@ -1,8 +1,8 @@
 ---
-title :Java Interface NavigableMap<K,V>
-date:2018/11/19 08:28:00
+title : Java Interface NavigableMap<K,V>
+date: 2018/11/19 08:28:00
 tags:
-- java
+ - java
 ---
 # Java Interface NavigableMap
 
