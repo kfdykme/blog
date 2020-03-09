@@ -83,4 +83,4 @@ public class AbcServiceProxy implments AbcService {
 
 ##### 动态代理
 
-[Retrofit 动态代理]("/android/retrotif/RetrofitFirst")
+[Retrofit 动态代理](/2019/04/15/android/retrofit/RetrofitFrist/)
