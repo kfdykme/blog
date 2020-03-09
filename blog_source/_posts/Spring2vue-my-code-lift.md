@@ -40,4 +40,47 @@ tags:
 
 ### Spring 帮我们做了什么呢
 
-现如今我想要使用spring搭建一个
+现如今我想要使用spring搭建一个http服务器
+
+
+- 控制反转 IoC (Inversion of controll)
+- 切面编程 AOP Aspect Oriented Programming
+  - Java 代理
+    - 动态代理
+    - 静态代理
+
+#### Java 代理
+
+##### 静态代理
+
+``` Java
+
+public interface AbcService {
+  public void doing();
+}
+
+public class AbcServiceImpl implements AbcService {
+  public void doing() {
+    System.out.println('doing');
+  }
+}
+
+public class AbcServiceProxy implments AbcService {
+  private AbcService abcService;
+
+  public AbcServiceProxy (AbcService service) {
+    abcService = service;
+  }
+
+  @Override
+  public void doing() {
+    System.out.println("doing start")
+    abcService.doing()
+    System.out.println("doing end")
+  }
+}
+```
+
+##### 动态代理
+
+[Retrofit 动态代理]("/android/retrotif/RetrofitFirst")
