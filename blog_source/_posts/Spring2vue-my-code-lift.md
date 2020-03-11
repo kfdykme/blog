@@ -83,4 +83,30 @@ public class AbcServiceProxy implments AbcService {
 
 ##### 动态代理
 
-[Retrofit 动态代理](/2019/04/15/android/retrofit/RetrofitFrist/)
+
+##### 动态代理
+
+动态代理的实现方式就是通过
+
+Proxy.newProxyInstance方法，将需要代理的类,方法，以及参数传递到对应的 InvocationHandler内，然后在调用方法的前后增加想要的逻辑代码
+
+``` Java
+public class AbsServiceDynamicProxy {
+
+  public static AbcService (AbcServiceImpl serviceImpl) {
+    return new Proxy.newProxyInstance(serviceImpl.class.getClassLoader()
+    ,logger.getClass().getInterfaces()
+    , new InvocationHandler() {
+      @Override
+           public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+               System.out.println("before proxy");
+               method.invoke(serviceImpl,args);
+               System.out.println("after proxy")
+               return null;
+           }
+    })
+  }
+}
+```
+
+[Retrofit 动态代理]("/android/retrotif/RetrofitFirst")
