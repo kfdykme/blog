@@ -6,7 +6,7 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "cd ./public && python -m SimpleHTTPServer"
+    "server": "cd ./public && python -m SimpleHTTPServer && start http://localhost:8000"
   },
   "hexo": {
     "version": "4.2.0"

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function Node(v) {
+      this.v = v
+      this.nex = null
+
+
+      Node.prototype.insert = (node) =>{
+          this.nex = node
+        }
+    }
+
+    let n = new Node(-1)
+    let b = n
+    for(let x = 0; x < 5; x++) {
+      n.insert(new Node(x))
+      console.info(n)
+      n = n.nex
+    }
+
+    console.info(n)
+    console.info(b)
+    </script>
+  </body>
+</html>
