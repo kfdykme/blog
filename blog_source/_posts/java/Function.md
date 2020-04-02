@@ -2,7 +2,7 @@
 title : Java @FunctionalInterface Function
 date : 2018/10/23 18:55:00
 tags :
-- java
+- Java
 ---
 
 # Java @FunctionalInterface Function
@@ -49,4 +49,4 @@ UnaryOperator<T>
 ## 方法
 - apply 实现执行处理
 - compose 构建一个新的Function, 将before的输出作为新Function的apply的输入,新apply的实现同当前
-- andThen 同理 
+- andThen 同理

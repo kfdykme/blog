@@ -2,7 +2,7 @@
 title : 算法整理囖
 date : 2018/10/22 11:03:00
 tags :
-- arithmetic
+- 算法
 ---
 
 

@@ -2,7 +2,7 @@
 title : Java Comparator
 date : 2018/10/24
 tags :
-- java
+- Java
 ---
 
 # Java Comparator

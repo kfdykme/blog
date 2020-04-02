@@ -1,29 +1,8 @@
 
-- Android 持久化存储
-  - 序列化
-    - Parceable
-      - 高效 Android 特有 复杂
-    - Serial
-      - io操作多 性能影响大
-  - 数据库
-    - sqlite
-    - greenDAO
-    - realm
-- Android启动模式和场景 1
-  - singleInstance 全局唯一
-     - oncreate
-     - onnewintent onrestart onstart
-  - singleStack 已处于栈内 复用并弹出上层
-  - singleTop 已处于栈内时复用
-  - standard
+
 - Android anr
   - 主线程耗时操作
-- handler
-  -
-- 生产者消费者1
-- handler机制123
-- service中startService和bindService
-  - 在停止时
+- 生产者消费者1  
 - 实现队列得方式
 - recyclerview
   - view池
@@ -75,10 +54,7 @@
   - md5
 - 死锁
   - 死锁四个条件
-- hashmap get流程
-  - key
-  - 顺序表
-  - 链表
+- vue
 - gc  算法
   - 新生代
   - 老年代
@@ -90,7 +66,15 @@
 - view如何渲染到频幕上
 - 开源框架相关
 - Android缓存
-  -
+  - LruCache
+    - 需要重写sizeof方法
+    - 最近最少使用
+    - LinkedHashMap
+      - 插入顺序和访问顺序
+      - get的时候如果accessOrder == ture
+        - addBefore(lm.header)
+    - LruCache内部维护了一个LinkedHashMap
+      - put操作完了之后 trimToSize
 - 滑动冲突解决
 - ClassLoader和jvm源码实现
 - 如何计算bitmap占用内存大小
@@ -98,17 +82,18 @@
   - 缩略图
   - 懒加载
 - aop与oop区别
-  -
 - 如何调试so库
-- handlerthread
 - bundle源码
 - sqlite 高效使用
 - ？SQLite在查询的时候可以插入吗
 - 热修复实现
 - 组件化
+  - module
+  - androidmanifest
   - java 反射
 - 常用的java数据接口，插入数据哪一个快
 - SP在大量的读写下有没有性能瓶颈？
+  - 有 因为是将一个文件一次性读到内存中
 - 联表查询
 - List接口 优缺点
 - List只能遍历一遍 删除target方法 双链表一次要怎么做
