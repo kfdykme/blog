@@ -2,7 +2,7 @@
 title: About Android 1 从启动到桌面
 date: 2020-03-29 23:59:22
 tags:
-- Android
+- android
 ---
 
 # about Android 1 启动到桌面

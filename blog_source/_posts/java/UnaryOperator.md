@@ -2,8 +2,8 @@
 title : java @FunctionalInterface UnaryOperator
 date : 2018/10/23 18:51:00
 tags :
-- Java
-- FunctionalInterface
+- java
+- functionalinterface
 ---
 
 # Java @FunctionalInterface UnaryOperator

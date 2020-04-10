@@ -2,7 +2,7 @@
 title : Java LinkedList
 date : 2018/10/25 21:39:00
 tags :
-- Java
+- java
 ---
 
 # Java LinkedList

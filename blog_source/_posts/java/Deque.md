@@ -2,7 +2,7 @@
 title : Java Deque
 date : 2018/10/25 21:29:00
 tags :
-- Java
+- java
 ---
 
 # Java Deque

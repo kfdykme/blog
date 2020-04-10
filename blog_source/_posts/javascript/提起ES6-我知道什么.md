@@ -2,7 +2,7 @@
 title: 提起ES6-我知道什么
 date: 2020-03-25 09:58:41J
 tags:
-- Javascript
+- javascript
 ---
 
 # 提起ES6-我知道什么

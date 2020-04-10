@@ -2,7 +2,7 @@
 title: About Android 3 持久化存储
 date: 2020-03-30 00:52:39
 tags:
-- Android
+- android
 ---
 
 # About Android 3 持久化存储

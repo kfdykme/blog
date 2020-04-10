@@ -2,7 +2,7 @@
 title : Java ArrayList
 date : 2018/10/24 20:32:00
 tags :
-- Java
+- java
 ---
 
 # Java ArrayList

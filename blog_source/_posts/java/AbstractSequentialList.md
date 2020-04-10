@@ -2,7 +2,7 @@
 title : Java AbstractSequentialList
 date : 2018/10/25 20:16:00
 tags :
-- Java
+- java
 ---
 
 

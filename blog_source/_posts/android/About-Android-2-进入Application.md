@@ -2,7 +2,7 @@
 title: About Android 2 进入Application
 date: 2020-03-30 00:00:20
 tags:
-- Android
+- android
 ---
 
 # About Android 2 进入Application

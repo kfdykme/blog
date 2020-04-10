@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    .color0 {
+      color: red;
+    }
+
+    .color1 {
+      color: green;
+    }
+
+    .color2 {
+      color: blue;
+    }
+  </style>
+  <body>
+    <p id="a"></p>
+    <div class=""> 
+      <input type="email" name="" value="">
+      <input type="number" name="" value="">
+      <input type="range" name="" value="">
+      <input type="date" name="" value="">
+      <input type="month" name="" value="">
+      <input type="week" name="" value="">
+      <input type="time" name="" value="">
+      <input type="datetime" name="" value="">
+      <input type="datetime-local" name="" value="">
+      <input type="search" name="" value="">
+      <input type="color" name="" value="">
+    </div>
+  </body>
+  <script type="text/javascript">
+    function HTMLEncode(html) {
+var temp = document.createElement("div");
+(temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+var output = temp.innerHTML;
+temp = null;
+return output;
+}
+    let e = document.getElementById('a')
+    function output(text) {
+        e.innerHTML = ''
+        text.split('').map((i,ii) => {
+          setTimeout(() => {
+                let ci = Math.floor(Math.random() * 3)
+                let n = '<span class="color' + ci + '" >' + HTMLEncode(i) + '</span>'
+                if (i == '\n') n = '<br />'
+                console.info(n)
+                e.innerHTML = e.innerHTML + n
+          }, ii * 200)
+        })
+    }
+    output("<a> </a>hello world\n你好世界")
+  </script>
+</html>

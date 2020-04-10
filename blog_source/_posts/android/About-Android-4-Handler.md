@@ -2,7 +2,7 @@
 title: About Android 4 Handler
 date: 2020-03-30 01:08:36
 tags:
-- Android
+- android
 ---
 
 # About Android 4 Handler

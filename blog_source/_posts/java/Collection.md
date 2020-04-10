@@ -2,8 +2,8 @@
 title : Java Collection
 date : 2018/10/23 10:44:00
 tag :
-- Java
-- List
+- java
+- list
 ---
 
 # Java Collection

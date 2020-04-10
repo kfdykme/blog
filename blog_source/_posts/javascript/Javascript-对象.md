@@ -2,7 +2,7 @@
 title: JavaScript-对象
 date: 2020-04-02 13:17:35
 tags:
-- JavaScript
+- javascript
 ---
 
 # JavaScript

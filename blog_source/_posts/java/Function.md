@@ -2,7 +2,7 @@
 title : Java @FunctionalInterface Function
 date : 2018/10/23 18:55:00
 tags :
-- Java
+- java
 ---
 
 # Java @FunctionalInterface Function

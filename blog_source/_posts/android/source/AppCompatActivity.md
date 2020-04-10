@@ -2,7 +2,7 @@
 title: Android AppCompatActivity
 date: 2019/2/19 15:54:52
 tag:
-- Android
+- android
 ---
 # Android AppCompatActivity
 

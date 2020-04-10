@@ -2,8 +2,8 @@
 title : Java Interface List
 date : 2018/10/23 18:39:00
 tags:
-- Android
-- Java
+- android
+- java
 ---
 
 # List
