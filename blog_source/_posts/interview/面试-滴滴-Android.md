@@ -1,0 +1,49 @@
+---
+title: '面试-滴滴-Android'
+date: 2020-04-24 17:09:24
+tags:
+- interview
+---
+- 一面
+  - 启动模式
+     - stackTop 生命周期
+  - handler
+  - handler机制
+  - handler原理
+  - looper
+  - 线程
+  - 协程
+     - kotlin js里面有 其他不知道
+  - 自定义view
+  - 动画
+  - 修改颜色的动画
+  - list
+  - hashmap hashtable
+     - hashmap 原理啥的
+  - 开源库
+     - retrofit
+     - okhttp
+  - activity 通信
+  - fragment 创建
+  - fragmentmanager trasation
+  - fragment之间通信
+  - activity通信
+  - 我说了一下不用fragment直接上view 问了一下
+  - thread里面looper
+  - looper.prepare
+     - 只说了单例 其他没说出来
+  - thread sleep wait 区别
+     - 3个线程依次执行
+  - 算法
+     - ["a","b","c"] ["c","d","e","f"] 找到 多的 少的 重复的
+- 二面
+  - 提到了launcher
+   - launcher启动的时候有个广播
+     - 这个广播是在启动前还是启动后
+  - launcher的实现
+  - 进程和线程
+    - 多进程用处
+     - 保活
+     - 已失效
+  - 比较有自信的项目
+    - miui的资源替换
