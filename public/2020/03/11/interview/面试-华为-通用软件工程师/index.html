@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="华为云核心网 通用软件工程师 20200310 自我介绍 语言 java &amp; JavaScript   项目经历 miui的经历   JVM GC 发展逻辑滤了一遍   计算机网络 ISO 7层 只记得5层了，忘记了七层是什么   子网掩码 255.255.255.0的局域网能分配多少个ip 答错了，255.255.255.0 和255.255.255.255都不能用作ip     面试的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试-华为-通用软件工程师">
+<meta property="og:url" content="http://yoursite.com/2020/03/11/interview/%E9%9D%A2%E8%AF%95-%E5%8D%8E%E4%B8%BA-%E9%80%9A%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88/index.html">
+<meta property="og:site_name" content="枋">
+<meta property="og:description" content="华为云核心网 通用软件工程师 20200310 自我介绍 语言 java &amp; JavaScript   项目经历 miui的经历   JVM GC 发展逻辑滤了一遍   计算机网络 ISO 7层 只记得5层了，忘记了七层是什么   子网掩码 255.255.255.0的局域网能分配多少个ip 答错了，255.255.255.0 和255.255.255.255都不能用作ip     面试的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-11T11:45:56.000Z">
+<meta property="article:modified_time" content="2021-02-21T16:12:48.843Z">
+<meta property="article:author" content="Kfdykme">
+<meta property="article:tag" content="interview">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/11/interview/%E9%9D%A2%E8%AF%95-%E5%8D%8E%E4%B8%BA-%E9%80%9A%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>面试-华为-通用软件工程师 | 枋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">This is my thrid blog web site.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/11/interview/%E9%9D%A2%E8%AF%95-%E5%8D%8E%E4%B8%BA-%E9%80%9A%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kfdykme">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          面试-华为-通用软件工程师
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-11 19:45:56" itemprop="dateCreated datePublished" datetime="2020-03-11T19:45:56+08:00">2020-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-22 00:12:48" itemprop="dateModified" datetime="2021-02-22T00:12:48+08:00">2021-02-22</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="华为云核心网-通用软件工程师-20200310"><a href="#华为云核心网-通用软件工程师-20200310" class="headerlink" title="华为云核心网 通用软件工程师 20200310"></a>华为云核心网 通用软件工程师 20200310</h2><ul>
+<li>自我介绍</li>
+<li>语言<ul>
+<li>java &amp; JavaScript</li>
+</ul>
+</li>
+<li>项目经历<ul>
+<li>miui的经历</li>
+</ul>
+</li>
+<li>JVM GC<ul>
+<li>发展逻辑滤了一遍</li>
+</ul>
+</li>
+<li>计算机网络<ul>
+<li>ISO 7层<ul>
+<li>只记得5层了，忘记了七层是什么</li>
+</ul>
+</li>
+<li>子网掩码<ul>
+<li>255.255.255.0的局域网能分配多少个ip<ul>
+<li>答错了，255.255.255.0 和255.255.255.255都不能用作ip</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>面试的这个视频 7层<ul>
+<li>随便说了一下</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据结构<ul>
+<li>顺序表 链表<ul>
+<li>怎样选择使用</li>
+</ul>
+</li>
+<li>平衡二叉树的定义<ul>
+<li>没答出来,答了二叉排序树。定义是左右子树高度差小于1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>算法<ul>
+<li>字符串倒转<ul>
+<li>“<a href="http://www.abc.com&quot;" target="_blank" rel="noopener">www.abc.com&quot;</a> -&gt; “com.abc.www”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">"www.abc.com"</span></span><br><span class="line">a.split(<span class="string">'.'</span>).reverse().join(<span class="string">'.'</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><ul>
+<li>自我介绍</li>
+<li>java , vue ,spring 都问都讲了，偏问项目</li>
+<li>不太记得了</li>
+<li>算法题</li>
+</ul>
+<h3 id="算法题-1"><a href="#算法题-1" class="headerlink" title="算法题"></a>算法题</h3><p>数组中有正数和负数，正数代表向右，负数代表向左。当两数字相撞时取绝对值大的数字，保证保持整个数组稳态。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deal = <span class="function"><span class="keyword">function</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> stack = []</span><br><span class="line">  arr.map(<span class="function"><span class="params">i</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.info(stack)</span><br><span class="line">    <span class="keyword">if</span> (stack.length == <span class="number">0</span>) &#123;</span><br><span class="line">      stack.push(i)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// duibi tail he i</span></span><br><span class="line">      <span class="keyword">let</span> t = stack[stack.length<span class="number">-1</span>]</span><br><span class="line">      <span class="keyword">if</span> (t * i &gt; <span class="number">0</span>) &#123;<span class="comment">// 同方向</span></span><br><span class="line">        stack.push(i)</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t * i &lt;<span class="number">0</span>) &#123;<span class="comment">//不同方向</span></span><br><span class="line">        <span class="keyword">if</span> (t &lt;<span class="number">0</span> &amp;&amp; i &gt;<span class="number">0</span>)&#123;</span><br><span class="line">          stack.push(i)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t&gt; <span class="number">0</span> &amp;&amp; i &lt;<span class="number">0</span>)&#123;</span><br><span class="line">          <span class="comment">//要撞</span></span><br><span class="line">          <span class="keyword">let</span> value = t + i</span><br><span class="line">          value = value &gt; <span class="number">0</span> ?  t:i</span><br><span class="line">          stack[stack.length<span class="number">-1</span>] = value</span><br><span class="line">          <span class="comment">//维持前面稳定</span></span><br><span class="line">          <span class="keyword">let</span> change = stack.length &gt; <span class="number">1</span></span><br><span class="line">          <span class="keyword">while</span>(change) &#123;</span><br><span class="line">            t = stack.pop();</span><br><span class="line">            tp = stack.pop();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (tp &gt; <span class="number">0</span> &amp;&amp; t &lt;<span class="number">0</span>) &#123;</span><br><span class="line">              value = tp + t</span><br><span class="line">              value = value &gt; <span class="number">0</span> ?  tp:t</span><br><span class="line">              stack.push(value)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              change = <span class="literal">false</span></span><br><span class="line">              stack.push(tp)</span><br><span class="line">              stack.push(t)</span><br><span class="line">            &#125;&#125;&#125;&#125;&#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> stack</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/interview/" rel="tag"># interview</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/10/myblog/Spring2vue-my-code-life-3-about-java/" rel="prev" title="Spring2vue-my-code-life-3-about-java">
+      <i class="fa fa-chevron-left"></i> Spring2vue-my-code-life-3-about-java
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/11/interview/%E7%AC%94%E8%AF%95-%E5%8D%9A%E4%B9%90/" rel="next" title="笔试-博乐">
+      笔试-博乐 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#华为云核心网-通用软件工程师-20200310"><span class="nav-number">1.</span> <span class="nav-text">华为云核心网 通用软件工程师 20200310</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法题"><span class="nav-number">1.1.</span> <span class="nav-text">算法题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二面"><span class="nav-number">2.</span> <span class="nav-text">二面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法题-1"><span class="nav-number">2.1.</span> <span class="nav-text">算法题</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kfdykme</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kfdykme</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

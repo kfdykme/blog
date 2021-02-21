@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Java Interface MapMapMap.java内部可以分成4个部分  逻辑上Map接口需要实现的方法 作为数据结构应该实现的方法 默认实现的方法 Map.Entry  逻辑上Map接口需要实现的方法 size  大小 isEmpty 是否为空 containsKey 是否包含有某个键 containsValue 是否包含有某个值 get 取 put 放 remove 移除 putAll">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Interface Map">
+<meta property="og:url" content="http://yoursite.com/2018/11/18/java/Map/index.html">
+<meta property="og:site_name" content="枋">
+<meta property="og:description" content="Java Interface MapMapMap.java内部可以分成4个部分  逻辑上Map接口需要实现的方法 作为数据结构应该实现的方法 默认实现的方法 Map.Entry  逻辑上Map接口需要实现的方法 size  大小 isEmpty 是否为空 containsKey 是否包含有某个键 containsValue 是否包含有某个值 get 取 put 放 remove 移除 putAll">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-18T14:09:00.000Z">
+<meta property="article:modified_time" content="2021-02-21T16:12:48.854Z">
+<meta property="article:author" content="Kfdykme">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2018/11/18/java/Map/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Java Interface Map | 枋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">This is my thrid blog web site.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/java/Map/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kfdykme">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java Interface Map
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-18 22:09:00" itemprop="dateCreated datePublished" datetime="2018-11-18T22:09:00+08:00">2018-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-22 00:12:48" itemprop="dateModified" datetime="2021-02-22T00:12:48+08:00">2021-02-22</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Java-Interface-Map"><a href="#Java-Interface-Map" class="headerlink" title="Java Interface Map"></a>Java Interface Map</h1><h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map.java内部可以分成4个部分</p>
+<ul>
+<li>逻辑上Map接口需要实现的方法</li>
+<li>作为数据结构应该实现的方法</li>
+<li>默认实现的方法</li>
+<li>Map.Entry</li>
+</ul>
+<h3 id="逻辑上Map接口需要实现的方法"><a href="#逻辑上Map接口需要实现的方法" class="headerlink" title="逻辑上Map接口需要实现的方法"></a>逻辑上Map接口需要实现的方法</h3><ul>
+<li>size  大小</li>
+<li>isEmpty 是否为空</li>
+<li>containsKey 是否包含有某个键</li>
+<li>containsValue 是否包含有某个值</li>
+<li>get 取</li>
+<li>put 放</li>
+<li>remove 移除</li>
+<li>putAll 全部放</li>
+<li>clear 清楚</li>
+<li>Set<K> keySet 获取所有键</li>
+<li>Collection<V> values 获取所有值</li>
+<li>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet 获取所有entry</li>
+</ul>
+<h3 id="作为数据结构应该实现的方法"><a href="#作为数据结构应该实现的方法" class="headerlink" title="作为数据结构应该实现的方法"></a>作为数据结构应该实现的方法</h3><ul>
+<li>boolean equals(Object o)</li>
+<li>int hashCode</li>
+</ul>
+<h3 id="默认方法"><a href="#默认方法" class="headerlink" title="默认方法"></a>默认方法</h3><ul>
+<li>getOrDefault 从一个键获取一个值，如果没有值，则默认返回<ul>
+<li>先get ，如果没有就返回默认值，有则返回get到的值</li>
+</ul>
+</li>
+<li>forEach 遍历一个map，<ul>
+<li>用到了BiConsumer</li>
+<li>先判断遍历执行的action是否为空，然后通过entrySet获取键值对，然后从键值对拿到key和value，传给action</li>
+</ul>
+</li>
+<li>replaceAll<ul>
+<li>用了BiFunction</li>
+<li>遍历一遍entrySet()然后将取到的key，value作为参数给function.apply之后，将结果赋值给value，然后最后entry.setValue</li>
+</ul>
+</li>
+<li>putIfAbsent 如果对应的key的value是空的话，就赋值，否则不赋值</li>
+<li>remove 移除<ul>
+<li>如果 传入的value和通过key取得的value不一致 则 返回 false， 不移除</li>
+<li>如果 通过key取得的value为空，同时map内部不包含该key，也返回false不移除</li>
+<li>其他情况 remove（key） ，return true</li>
+</ul>
+</li>
+<li>replace 三个参数<ul>
+<li>同上，remove改为put（key,newValue)</li>
+</ul>
+</li>
+<li>replace 两个参数<ul>
+<li>只要通过key获取到的value不为空或者key在目标map中存在，就可以将传入的value替换到对应的key中</li>
+</ul>
+</li>
+<li>computeIfAbsent 如果key对应的value == null， 则对key做处理后 的结果作为value传入<ul>
+<li>如果 value!= null 或者function的结果==null，则不改变，并返回value</li>
+<li>返回的value有可能为空</li>
+</ul>
+</li>
+<li>computeIfPresent 如果key对应的value不为空，则处理并将结果传入，其他同上</li>
+<li>compute 不讲道理，直接将key处理一遍，然后传入到value</li>
+<li>merge<ul>
+<li>如果key中已有值，则对oldvalue与newvalue一起处理，然后返回值作为newvalue，否则将传入的value作为newvalue</li>
+<li>如果最终newvalue为空，则移除key，否则将newvalue作为新的value传入</li>
+</ul>
+</li>
+</ul>
+<h3 id="Map-Entry"><a href="#Map-Entry" class="headerlink" title="Map.Entry"></a>Map.Entry</h3><p>Map.Entry是一个键值对，有简单的</p>
+<ul>
+<li>getKey</li>
+<li>getValue</li>
+<li>setValue</li>
+<li>equals</li>
+<li>hashCode<br>这些方法，已经内部已经实现了静态的比较方法。</li>
+<li>comparingByKey 以自然顺序比较</li>
+<li>comparingByValue 以自然顺序比较</li>
+<li>comparingByKey 自定义Comparator</li>
+<li>comparingByValue 自定义 Comparator</li>
+</ul>
+<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Interface Map&lt;K,V&gt;&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">constainsKey</span><span class="params">(Object key)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">containsValue</span><span class="params">(Object value)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">V <span class="title">get</span><span class="params">(Object key)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">V <span class="title">put</span><span class="params">(Object key,Object value)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">V <span class="title">remove</span><span class="params">(Object key)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; m)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">Set&lt;K&gt; <span class="title">keySet</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">Collection&lt;V&gt; <span class="title">values</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet();</span><br><span class="line"></span><br><span class="line">  Interface Entry&lt;K,V&gt; &#123;</span><br><span class="line">    <span class="function">K <span class="title">getKey</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">V <span class="title">getValue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">V <span class="title">setValue</span><span class="params">(V  value)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;K extends Comparable&lt;? <span class="keyword">super</span> K&gt; ,V&gt; Comparator&lt;Map.<span class="function">Entry&lt;K,V&gt; <span class="title">comparingByKey</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> (Comparator&lt;Map.Entry&lt;K,V&gt;&gt; &amp; Serializable) (c1,c2)-&gt;c1.getKey().compareTo(c2.getKey());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V extends Comparable &lt;? <span class="keyword">super</span> V&gt;&gt; Comparator&lt;Map.Entry&lt;K,V&gt;&gt; comparingByValue()&#123;</span><br><span class="line">      <span class="keyword">return</span> (Comparator&lt;Map.Entry&lt;K,V&gt;&gt; &amp; Serializable) (c1,c2) -&gt; c1.getValue().compareTo(c2.getValue());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; Comparator&lt;Map.Entry&lt;K,V&gt;&gt; comparingByKey(Comparator&lt;? <span class="keyword">super</span> K&gt; cmp)&#123;</span><br><span class="line">      Objects.requireNonNull(cmp);</span><br><span class="line">      <span class="keyword">return</span> (Comparator&lt;Map.Entry&lt;K,V&gt;&gt; &amp; Serializable)(c1,c2) -&gt; cmp.compare(c1.getKey(),c2.getKey());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; Comparator&lt;Map.Entry&lt;K,V&gt;&gt; comparingByValue(Comparator&lt;? <span class="keyword">super</span> V&gt; cmp)&#123;</span><br><span class="line">      Objects.requireNonNull(cmp);</span><br><span class="line">      <span class="keyword">return</span> (Comparator&lt;Map.Entry&lt;K,V&gt;&gt; &amp; Serializable)(c1,c2)-&gt;cmp.compare(c1.getValue(), c2.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">equals</span> <span class="params">(Object o)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> V <span class="title">getOrDefault</span><span class="params">(Object key , V defaultValue)</span></span>&#123;</span><br><span class="line">    V v;</span><br><span class="line">    <span class="keyword">return</span> (((v = get(key)) != <span class="keyword">null</span>) || constainsKey(key))</span><br><span class="line">      ? v</span><br><span class="line">      : defaultValue;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEach</span><span class="params">(BiConsumer&lt;? <span class="keyword">super</span> K, ? <span class="keyword">super</span> V&gt; action)</span></span>&#123;</span><br><span class="line">    Objects.requireNonNull(action);</span><br><span class="line">    <span class="keyword">for</span>(Map.Entry&lt;K,V&gt; entry :entrySet())&#123;</span><br><span class="line">      K k;</span><br><span class="line">      V v;</span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        k = entry.getKey();</span><br><span class="line">        v = entry.getValue();</span><br><span class="line">      &#125; <span class="keyword">catch</span> (IllegalStateException ise)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException(ise);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      action.accept(k,v);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">replaceAll</span><span class="params">(BiFunction&lt;? <span class="keyword">super</span> K, ? <span class="keyword">super</span> V, ? extends V&gt; function)</span></span>&#123;</span><br><span class="line">    Objects.requireNonNull(function);</span><br><span class="line">    <span class="keyword">for</span>(Map.Entry&lt;K,V&gt; entry : entrySet())&#123;</span><br><span class="line">      K k;</span><br><span class="line">      V v;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        k = entry.getKey();</span><br><span class="line">        v = entry.getValue();</span><br><span class="line">      &#125; <span class="keyword">catch</span> (IllegalStateException ise)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException(ise);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      v = function.apply(k,v);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        entry.setValue(v);</span><br><span class="line">      &#125; <span class="keyword">catch</span>(IllegalStateException ise)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException(ise);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> V <span class="title">putIfAbsent</span><span class="params">(K key, V value)</span></span>&#123;</span><br><span class="line">    V v = get(key);</span><br><span class="line">    <span class="keyword">if</span>( v== <span class="keyword">null</span>)&#123;</span><br><span class="line">      v = put(key,value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object key,Object value)</span></span>&#123;</span><br><span class="line">    Object vurValue = get(key);</span><br><span class="line">    <span class="keyword">if</span>(!Objects.equals(curValue ,value) ||</span><br><span class="line">      （curValue == <span class="keyword">null</span> &amp;&amp; !constainsKey(key))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      remove(key);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">replace</span><span class="params">(K key,V oldValue, V newValue)</span></span>&#123;</span><br><span class="line">    Object curValue = get(key);</span><br><span class="line">    <span class="keyword">if</span>( !Objects.equals(curValue,oldValue) ||</span><br><span class="line">      (curValue == <span class="keyword">null</span> &amp;&amp; !containsKey(key)))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      put(key,newValue);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> V <span class="title">replace</span><span class="params">(K key, V value)</span></span>&#123;</span><br><span class="line">    V curValue;</span><br><span class="line">    <span class="keyword">if</span>(((curValue = get(key)) != <span class="keyword">null</span>) || containsKey(key))&#123;</span><br><span class="line">      curValue = put(key,value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> curValue</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> V <span class="title">computeIfAbsent</span><span class="params">(K key, Function&lt;? <span class="keyword">super</span> K, ? extends V&gt; mappingFunction)</span></span>&#123;</span><br><span class="line">    Objects.requireNonNull(mappingFunction);</span><br><span class="line">    V v;</span><br><span class="line">    <span class="keyword">if</span>((v = get（key)) == <span class="keyword">null</span> )&#123;</span><br><span class="line">      V newValue</span><br><span class="line">      <span class="keyword">if</span>((newValue = mappingFunction.apply(key)) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        put(key, newValue);</span><br><span class="line">        <span class="keyword">return</span> newValue;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">default</span> V <span class="title">computeIfPresent</span><span class="params">(K key,</span></span></span><br><span class="line"><span class="function"><span class="params">    BiFunction&lt;? <span class="keyword">super</span> K , ? <span class="keyword">super</span> V, ? extends V&gt; remappingFunction)</span></span>&#123;</span><br><span class="line">      V oldValue;</span><br><span class="line">      <span class="keyword">if</span>((oldValue = get(key)) != <span class="keyword">null</span>)&#123;</span><br><span class="line">        V newValue = remappingFunction.apply(key,oldValue);</span><br><span class="line">        <span class="keyword">if</span>(newValue != <span class="keyword">null</span>)&#123;</span><br><span class="line">          put(key,newValue);</span><br><span class="line">          <span class="keyword">return</span> newValue;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          remove(key);</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> V <span class="title">compute</span><span class="params">(K key,BiFunction&lt;? <span class="keyword">super</span> K, ? <span class="keyword">super</span> V , ? extends V&gt; remappingFunction)</span></span>&#123;</span><br><span class="line">      Objects.requireNonNull(remappingFunction);</span><br><span class="line"></span><br><span class="line">      V newValue = remappingFunction.apply(key,oldValue);</span><br><span class="line">      <span class="keyword">if</span>(newValue == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(oldValue != <span class="keyword">null</span> || containsKey(key))&#123;</span><br><span class="line">          remove(key);</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        put(key,newValue);</span><br><span class="line">        <span class="keyword">return</span> newValue;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> V <span class="title">merge</span><span class="params">(K key, V value, BiFunction&lt;? <span class="keyword">super</span> V, ? <span class="keyword">super</span> V, ? extends V&gt; remappingFunction)</span></span>&#123;</span><br><span class="line">      Objects.requireNonNull(remappingFunction);</span><br><span class="line">      Objects.requireNonNull(value);</span><br><span class="line"></span><br><span class="line">      V oldValue = get(key);</span><br><span class="line">      V newValue = (oldValue == <span class="keyword">null</span> ?) value : remappingFunction.apply(oldValue,value);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(newValue == <span class="keyword">null</span>)&#123;</span><br><span class="line">        remove(key);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        put(key,newValue);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> newValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/11/16/infromationTheroy/421/" rel="prev" title="4.2.1 信道的容量定义">
+      <i class="fa fa-chevron-left"></i> 4.2.1 信道的容量定义
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/19/java/AbstractMap/" rel="next" title="Java abstract class AbstractMap<K,V>">
+      Java abstract class AbstractMap<K,V> <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-Interface-Map"><span class="nav-number">1.</span> <span class="nav-text">Java Interface Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">1.1.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑上Map接口需要实现的方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">逻辑上Map接口需要实现的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作为数据结构应该实现的方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">作为数据结构应该实现的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认方法"><span class="nav-number">1.1.3.</span> <span class="nav-text">默认方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map-Entry"><span class="nav-number">1.1.4.</span> <span class="nav-text">Map.Entry</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#source"><span class="nav-number">1.2.</span> <span class="nav-text">source</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kfdykme</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kfdykme</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

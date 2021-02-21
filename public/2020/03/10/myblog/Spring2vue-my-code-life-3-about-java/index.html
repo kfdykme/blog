@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="从Spring 到Vue 3 关于Java有什么事Java经常会被问到但是我一直记不住的呢. 基础Java的基础类型？ int long short byte char boolean double float 声明基础类型的时候发生了什么？ 例如 123456public class Main &amp;#123;  public int a;  &#x2F;&#x2F;在栈中分配了空间给a  public int b &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring2vue-my-code-life-3-about-java">
+<meta property="og:url" content="http://yoursite.com/2020/03/10/myblog/Spring2vue-my-code-life-3-about-java/index.html">
+<meta property="og:site_name" content="枋">
+<meta property="og:description" content="从Spring 到Vue 3 关于Java有什么事Java经常会被问到但是我一直记不住的呢. 基础Java的基础类型？ int long short byte char boolean double float 声明基础类型的时候发生了什么？ 例如 123456public class Main &amp;#123;  public int a;  &#x2F;&#x2F;在栈中分配了空间给a  public int b &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-09T16:06:12.000Z">
+<meta property="article:modified_time" content="2021-02-21T16:12:48.861Z">
+<meta property="article:author" content="Kfdykme">
+<meta property="article:tag" content="code">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/10/myblog/Spring2vue-my-code-life-3-about-java/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Spring2vue-my-code-life-3-about-java | 枋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">This is my thrid blog web site.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/10/myblog/Spring2vue-my-code-life-3-about-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Kfdykme">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring2vue-my-code-life-3-about-java
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-10 00:06:12" itemprop="dateCreated datePublished" datetime="2020-03-10T00:06:12+08:00">2020-03-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-22 00:12:48" itemprop="dateModified" datetime="2021-02-22T00:12:48+08:00">2021-02-22</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="从Spring-到Vue-3-关于Java"><a href="#从Spring-到Vue-3-关于Java" class="headerlink" title="从Spring 到Vue 3 关于Java"></a>从Spring 到Vue 3 关于Java</h1><p>有什么事Java经常会被问到但是我一直记不住的呢.</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>Java的基础类型？</p>
+<p>int long short byte char boolean double float</p>
+<p>声明基础类型的时候发生了什么？</p>
+<p>例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> a;</span><br><span class="line">  <span class="comment">//在栈中分配了空间给a</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//在栈中分配了空间给b同时在常量区中查找变量0，如果有则栈中b指向该值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="String-类型"><a href="#String-类型" class="headerlink" title="String 类型"></a>String 类型</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> String c = <span class="string">"c"</span>;</span><br><span class="line">  <span class="keyword">public</span> String d = <span class="string">"das"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> String e  = c + d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><h4 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h4><p>可序列化的对象中不需要进行序列化的变量</p>
+<h4 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h4><p>每次写的的时候从内存读取</p>
+<h4 id="atomic"><a href="#atomic" class="headerlink" title="atomic"></a>atomic</h4><p>####</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="Java-链表"><a href="#Java-链表" class="headerlink" title="Java 链表"></a>Java 链表</h3><h3 id="Java-List"><a href="#Java-List" class="headerlink" title="Java List"></a>Java List</h3><ul>
+<li>ArrayList<ul>
+<li>数组</li>
+</ul>
+</li>
+<li>Vector<ul>
+<li>数组</li>
+<li>线程安全</li>
+</ul>
+</li>
+<li>LinkedList<ul>
+<li>链表</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<p>数组实现： 查找快，增删慢<br>链表实现： 查找慢，增删快</p>
+<h3 id="Java-HashSet"><a href="#Java-HashSet" class="headerlink" title="Java HashSet"></a>Java HashSet</h3><ul>
+<li>存<ul>
+<li>调用hashCode，计算存储位置<ul>
+<li>进行equals比较<ul>
+<li>没用元素/比较结果为false则存</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Java-Collection"><a href="#Java-Collection" class="headerlink" title="Java Collection"></a>Java Collection</h3><h3 id="Java-HashMap"><a href="#Java-HashMap" class="headerlink" title="Java HashMap"></a>Java HashMap</h3><h4 id="hash冲突"><a href="#hash冲突" class="headerlink" title="hash冲突"></a>hash冲突</h4><p>拉链法解决</p>
+<p>初始容量，加载因子</p>
+<p>线程不安全,</p>
+<h4 id="hashtable"><a href="#hashtable" class="headerlink" title="hashtable"></a>hashtable</h4><p>线程安全</p>
+<p>散列表</p>
+<p>key value不能为空</p>
+<p>支持Enumeration</p>
+<h4 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h4><p>线程安全版HashMap</p>
+<p>增加了segment层，每次针对单个segment加锁</p>
+<h4 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h4><ul>
+<li>LinkedHashMap是继承于HashMap，是基于HashMap和双向链表来实现的。</li>
+<li>HashMap无序；LinkedHashMap有序，可分为插入顺序和访问顺序两种。如果是访问顺序，那put和get操作已存在的Entry时，都会把Entry移动到双向链表的表尾(其实是先删除再插入)。</li>
+<li>LinkedHashMap存取数据，还是跟HashMap一样使用的Entry[]的方式，双向链表只是为了保证顺序。</li>
+<li>LinkedHashMap是线程不安全的</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/8f4f58b4b8ab" target="_blank" rel="noopener">我看的这里</a></p>
+<h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h4><p>基于红黑树的NavigableMap，线程非安全，不允许null，存入需要实现comparable接口或实现comparator接口排序</p>
+<h2 id="JVM相关"><a href="#JVM相关" class="headerlink" title="JVM相关"></a>JVM相关</h2><p>jvm运行时数据区</p>
+<ul>
+<li>方法区 method area</li>
+<li>虚拟机栈 VM stack</li>
+<li>本地方法栈 native method stack</li>
+<li>堆 heap</li>
+<li>程序计数器 program counter register</li>
+</ul>
+<p>###程序计数器</p>
+<ul>
+<li>java 方法<ul>
+<li>正在执行的虚拟机字节码的地址</li>
+</ul>
+</li>
+<li>本地方法<ul>
+<li>undefined</li>
+</ul>
+</li>
+</ul>
+<h3 id="java-虚拟机栈"><a href="#java-虚拟机栈" class="headerlink" title="java 虚拟机栈"></a>java 虚拟机栈</h3><ul>
+<li>线程私有</li>
+<li>java方法执行的内存模型。</li>
+<li>每个方法在执行时都会创建一个栈帧 Stack Frame<ul>
+<li>局部变量表<ul>
+<li>编译器可知的各种基本类型（boolean， int，long， short， byte， double， float， char）</li>
+<li>对象引用类型（refrence）</li>
+<li>returnAddress类型</li>
+</ul>
+</li>
+<li>操作数栈</li>
+<li>动态链接</li>
+<li>方法出口</li>
+</ul>
+</li>
+</ul>
+<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><ul>
+<li>线程共享</li>
+</ul>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><ul>
+<li>共享内存</li>
+<li>包含<ul>
+<li>已被虚拟机加载的类信息</li>
+<li>常量</li>
+<li>静态变量</li>
+<li>即时编译器编译后的代码等数据</li>
+</ul>
+</li>
+<li>运行时常量池<ul>
+<li>存放编译期间生成的各种字面量和符号引用。</li>
+<li>内存有限</li>
+</ul>
+</li>
+</ul>
+<h3 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h3><p>不知道</p>
+<h2 id="HotSpot"><a href="#HotSpot" class="headerlink" title="HotSpot"></a>HotSpot</h2><p>后续再研究吧</p>
+<h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><h3 id="对象的布局"><a href="#对象的布局" class="headerlink" title="对象的布局"></a>对象的布局</h3><p>###对象的访问定位</p>
+<h3 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h3><h2 id="Java-反射"><a href="#Java-反射" class="headerlink" title="Java 反射"></a>Java 反射</h2><h2 id="Java-类加载"><a href="#Java-类加载" class="headerlink" title="Java 类加载"></a>Java 类加载</h2><p>双亲</p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;).start()</span><br><span class="line"></span><br><span class="line"><span class="comment">//run的话只是正常运行，不会启动新线程</span></span><br><span class="line"><span class="comment">//如何验证？</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Callable"><a href="#Callable" class="headerlink" title="Callable"></a>Callable</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callable</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function">V <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">cancel</span><span class="params">(<span class="keyword">boolean</span> mayInterruptIfRunning)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">isCancelled</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">V <span class="title">get</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, ExecutionException</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">V <span class="title">get</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException, ExecutionException, TimeoutException</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Runnable</span>, <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FutureTask</span>&lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Executor</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(Runnable command)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ExecutorService</span> <span class="keyword">extends</span> <span class="title">Executor</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">shutdown</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function">List&lt;Runnable&gt; <span class="title">shutdownNow</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">isShutdown</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">isTerminated</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">   &lt;T&gt; <span class="function">Future&lt;T&gt; <span class="title">submit</span><span class="params">(Callable&lt;T&gt; task)</span></span>;</span><br><span class="line">   &lt;T&gt; <span class="function">Future&lt;T&gt; <span class="title">submit</span><span class="params">(Runnable task, T result)</span></span>;</span><br><span class="line">   Future&lt;?&gt; submit(Runnable task);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Executors</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newCachedThreadPool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">0</span>, Integer.MAX_VALUE, <span class="number">60L</span>, TimeUnit.SECONDS,</span><br><span class="line">                            <span class="keyword">new</span> SynchronousQueue&lt;Runnable&gt;());</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="四种线程池"><a href="#四种线程池" class="headerlink" title="四种线程池"></a>四种线程池</h4><ul>
+<li>newCachedThreadPool<ul>
+<li>如无线程则新建。</li>
+<li>一定时间无使用则销毁</li>
+</ul>
+</li>
+<li>newSingleThreadExecutor<ul>
+<li>维持一个线程</li>
+</ul>
+</li>
+<li>newFixedThreadPool<ul>
+<li>最大值前一个任务一个线程</li>
+</ul>
+</li>
+<li>newScheduledThreadPool<ul>
+<li>大小无限</li>
+</ul>
+</li>
+</ul>
+<p>线程异常则再加一新的线程</p>
+<h4 id="关闭方法"><a href="#关闭方法" class="headerlink" title="关闭方法"></a>关闭方法</h4><ul>
+<li>shutdown<ul>
+<li>不接受新任务，任务结束后停止</li>
+</ul>
+</li>
+<li>shutdownNow<ul>
+<li>尝试停止，返回未执行任务</li>
+</ul>
+</li>
+</ul>
+<h3 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h3><ul>
+<li>同步方法</li>
+<li>同步代码块</li>
+<li>volatile</li>
+<li>重入锁<ul>
+<li>ReentrantLock()</li>
+</ul>
+</li>
+<li>ThreadLocal</li>
+<li>LinkedBlockingQueue</li>
+<li>原子变量</li>
+</ul>
+<h3 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h3><p>先判断类型，在判断值。可重写</p>
+<h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode"></a>hashCode</h3><p>返回</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/code/" rel="tag"># code</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/09/myblog/Spring2vue-my-code-life-2/" rel="prev" title="Spring2vue-my-code-life-2">
+      <i class="fa fa-chevron-left"></i> Spring2vue-my-code-life-2
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/11/interview/%E9%9D%A2%E8%AF%95-%E5%8D%8E%E4%B8%BA-%E9%80%9A%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88/" rel="next" title="面试-华为-通用软件工程师">
+      面试-华为-通用软件工程师 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从Spring-到Vue-3-关于Java"><span class="nav-number">1.</span> <span class="nav-text">从Spring 到Vue 3 关于Java</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-number">1.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">String 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字"><span class="nav-number">1.1.3.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#transient"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">transient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#atomic"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">atomic</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.2.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-链表"><span class="nav-number">1.2.1.</span> <span class="nav-text">Java 链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-List"><span class="nav-number">1.2.2.</span> <span class="nav-text">Java List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-HashSet"><span class="nav-number">1.2.3.</span> <span class="nav-text">Java HashSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Collection"><span class="nav-number">1.2.4.</span> <span class="nav-text">Java Collection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-HashMap"><span class="nav-number">1.2.5.</span> <span class="nav-text">Java HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash冲突"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">hash冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hashtable"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">hashtable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">1.2.5.3.</span> <span class="nav-text">ConcurrentHashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">1.2.5.4.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeMap"><span class="nav-number">1.2.5.5.</span> <span class="nav-text">TreeMap</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM相关"><span class="nav-number">1.3.</span> <span class="nav-text">JVM相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-虚拟机栈"><span class="nav-number">1.3.1.</span> <span class="nav-text">java 虚拟机栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地方法栈"><span class="nav-number">1.3.2.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">1.3.3.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区"><span class="nav-number">1.3.4.</span> <span class="nav-text">方法区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接内存"><span class="nav-number">1.3.5.</span> <span class="nav-text">直接内存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HotSpot"><span class="nav-number">1.4.</span> <span class="nav-text">HotSpot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的创建"><span class="nav-number">1.4.1.</span> <span class="nav-text">对象的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的布局"><span class="nav-number">1.4.2.</span> <span class="nav-text">对象的布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GC"><span class="nav-number">1.4.3.</span> <span class="nav-text">GC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-反射"><span class="nav-number">1.5.</span> <span class="nav-text">Java 反射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-类加载"><span class="nav-number">1.6.</span> <span class="nav-text">Java 类加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">1.7.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Callable"><span class="nav-number">1.7.1.</span> <span class="nav-text">Callable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池"><span class="nav-number">1.7.2.</span> <span class="nav-text">线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四种线程池"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">四种线程池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭方法"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">关闭方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程同步"><span class="nav-number">1.7.3.</span> <span class="nav-text">线程同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#equals"><span class="nav-number">1.7.4.</span> <span class="nav-text">equals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashCode"><span class="nav-number">1.7.5.</span> <span class="nav-text">hashCode</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Kfdykme</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kfdykme</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
